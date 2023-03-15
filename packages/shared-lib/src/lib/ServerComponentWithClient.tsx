@@ -7,7 +7,7 @@ function loadData(): Promise<string> {
   });
 }
 
-export function ServerComponent() {
+export function ServerComponentWithClient() {
   return (
     <React.Suspense fallback={<Loading />}>
       {/* @ts-expect-error ServerComponent */}
@@ -24,7 +24,7 @@ async function Loaded() {
   const result = await loadData();
   return (
     <div>
-      <div>loaded</div>
+      <div>loaded: {result}</div>
       <ClientComponent />
     </div>
   );
